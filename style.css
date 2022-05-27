@@ -1,0 +1,1479 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Cinzel+Decorative:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&family=Lobster+Two:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(225, 245, 252);
+    scroll-behavior: smooth;
+}
+
+p {
+    color: black;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+}
+
+h1 {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+    font-size: 3rem;
+ }
+
+a {
+    text-decoration: none;
+}
+
+.cta {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px 30px;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    color: black;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid crimson;
+    letter-spacing: .1rem;
+    transform: skew(1deg, 1deg);
+    transition: .3s ease;
+    transition-property: background-color, color, transform;
+}
+.cta:hover {
+    background-color: crimson;
+    color: white;
+    transform: skew(0deg, 0deg);
+
+}
+
+.brand h1 {
+    font-size: 3rem;
+    font-family: 'Faster one', cursive;
+    font-weight: 100;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: white;
+    transition: 1s ease letter-spacing;
+}
+
+.brand h1 a {
+    color: white;
+}
+
+.brand h1 span {
+    color: crimson;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.section-title span {
+    color: crimson;
+}
+/*Header Section*/
+
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+
+#header .container {
+    min-height: 8vh;
+    background-color: rgba(0, 0, 0, 0.39);
+    overflow: hidden;
+    transition: .3s background-color;
+}
+
+#header .container .header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    border-radius: 50%;
+    display: none;
+}
+
+#header .nav-bar {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: rgb(22, 21, 21);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    z-index: 1;
+    transition: .3s ease left;
+}
+
+#header .nav-list ul.active {
+    left: 0;
+}
+
+#header .nav-list ul a {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    display: block;
+    padding: 25px 15px;
+}
+
+#header .nav-list ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    text-align: center;
+    color: #4e51533a;
+    font-size: 10rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+
+#header .nav-list ul li a:hover {
+    color: crimson;
+    transition: .2s ease-out;
+}
+
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-left: 20px;
+}
+
+#header .hamburger::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 50%;
+    animation: hamburger_puls 1.1s ease infinite;
+}
+
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+    top: 8px;
+}
+
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+/*End Header Section*/
+
+
+/*Hero section*/
+#hero {
+    margin: 0 auto;
+    padding: 0;
+    background: url(/images/realEntertainment.jpg);
+    background-color: crimson;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: cover;
+    background-origin:border-box;
+    position: relative;
+    z-index: 1;
+    transition: 2s ease background;
+}
+
+#hero::after {
+    content: '';
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5;
+    z-index: -1;
+}
+
+#hero .container {
+    margin: 0 aut0;
+    align-items: flex-start;
+    justify-content: left;
+    flex-direction: column;
+    padding-top: 80px;
+    padding-left: 30px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#hero h1 {
+    padding: 0;
+    color: transparent;
+    display: block;
+    width: fit-content;
+    font-size: 8rem;
+    position: relative;
+    text-transform: uppercase;
+    animation: text_reveal 2s ease forwards;
+    animation-delay: 1s;
+}
+
+#hero h1:nth-child(1) {
+    animation-delay: 2s;
+}
+
+#hero h1:nth-child(2) {
+    animation-delay: 3.6s;
+}
+
+#hero h1:nth-child(3) {
+    animation: text_reveal3 9s ease infinite;
+    animation-delay: 5.2s;
+    font-size: 3.5rem;
+}
+
+#hero h1 span {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0px 40px 0px 40px;
+    background-color: crimson;
+    animation: text_reveal_box 2s ease;
+    animation-delay: .3s;
+}
+
+#hero h1:nth-child(1) span {
+    animation-delay: 1s;
+}
+
+#hero h1:nth-child(2) span {
+    animation-delay: 2.6s;
+}
+
+#hero h1:nth-child(3) span {
+    animation-delay: 4.2s;
+    background-color: white;
+}
+/*End Hero Section*/
+
+/*Nap Section*/
+#nap .container {
+    margin: 0 auto;
+    display: Flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+}
+#onlow {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Cinzel decorative', cursive;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    word-spacing: 3px;
+    line-height: 40px;
+    max-width: 80%;
+}
+#nap p {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 30px;
+    width: 95%;
+}
+/*End Nap Section*/
+
+/*Vision Section*/
+#vision {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+#vision h1 {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .2rem;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 2.5rem;
+    background-color: rgba(7, 2, 3, 0.205);
+}
+#vision h1 span {
+    color: crimson;
+}
+#vision .vision {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    background-image: url(/images/realEntertainment.jpg);
+    background-color: crimson;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: right;
+    background-attachment: fixed;
+}
+#vision .vision p{
+    font-size: 1.4rem;
+    color: white;
+    text-align: justify;
+    width: 90%;
+    font-weight: 400;
+    line-height: 40px;
+}
+/*End Vision Section*/
+
+#big img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 350px;   
+}
+
+/*Music Section*/
+#music {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+#music .music {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 70vh;
+    padding: 60px 0px;
+    background-image: linear-gradient(30deg, #000000ef 30%, #1e2022 40%);
+    background-attachment: fixed;
+}
+#music h1 {
+   display: block;
+   text-transform: uppercase;
+   text-align: center;
+   padding: 20px;
+   font-size: 3rem;
+   color: crimson;
+   background: rgba(220, 20, 60, 0.075);
+   margin-bottom: 60px;
+   letter-spacing: 1rem;
+   box-shadow: 1px 0px 12px 2px;
+   border: 5px solid rgba(0, 0, 0, 0.274);
+   border-top: none;
+   border-bottom: none;
+}
+#music h1 span {
+   color: inherit;
+}
+#music img {
+    display: block;
+    width: 50%;
+    height: 50%;
+    border-radius: 40px;
+    margin-bottom: 10px;
+}
+#music h2 {
+    color: crimson;
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#music .music p {
+    font-size: 1.5rem;
+    color: white;
+    text-align: justify;
+    width: 90%;
+    font-weight: 500;
+    line-height: 40px;
+    width: 80%;
+    text-align: center;
+}
+#music .music a {
+    color: White;
+}
+#music .music .home-music-vLink {
+    color:rgb(94, 205, 224);
+}
+#music .music .cta-stream {
+    margin: 30px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: crimson;
+    text-transform: uppercase;
+    border: 1px solid rgb(97, 96, 96);
+    border-top: 0px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    transform: skew(1deg, 1deg);
+    transition: .3s ease;
+}
+#music .music .cta-stream:hover {
+    border: .1px solid white;
+    border-top: 1px solid rgb(97, 96, 96);
+    border-left: 1px solid rgb(97, 96, 96);
+    font-size: 1.5rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    transform: skew(0deg, 0deg);
+
+    box-shadow: 3px 3px 4px 1px rgba(255, 255, 255, 0.486);
+}
+/*End Music Section*/
+
+/*About section*/
+#about .about {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+#about .col-left {
+    margin:0 auto;
+    width: 250px;
+    height: 360px;
+}
+#about .col-right {
+    width: 100%;
+}
+#about .col-right .section-title {
+    padding-bottom: 0px;
+}
+#about .col-right h2 {
+    display: inline-block;
+    font-size: 1.9rem;
+    font-weight: 500;
+    letter-spacing: .5rem;
+    margin-bottom: 15px;
+    padding: 5px;
+    text-decoration: overline;
+    color: crimson;
+}
+#about .col-right p {
+    margin-bottom: 20px;
+    line-height: 30px;
+    max-width: 95%;
+    font-style: oblique;
+    font-weight: 400;
+}
+#about .col-left .about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 10px solid rgb(225, 245, 252);
+}
+#about .col-left .about-img::after {
+    content:'';
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    left: -33px;
+    top: 19px;
+    border: 7px solid crimson;
+    z-index: -1;
+}
+/*End About Section*/
+
+/*Contact Section*/
+#contact .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+#contact .contact-items {
+    width: 400px;
+}
+#contact .contact-item {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px;
+    flex-direction: column;
+    box-shadow: 0px 0px 18px 0 #0000004b;
+    transition: .3s ease box-shadow;
+}
+#contact .contact-item:hover {
+    box-shadow: 0px 0px 5px 0 #00000034;
+}
+#contact .contact-icon {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#contact .contact-info h1 {
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+#contact .contact-info h2 {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    font-weight: 550;
+
+}
+/*End Contact Section*/
+
+/*Footer Section*/
+#footer {
+    background-image: linear-gradient(60deg, #000000 0%, #16181a 100%);
+    min-height: 200px;
+}
+#footer .footer {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+#footer .footer .brand h1 {
+    font-size: 2rem;
+    font-family: 'cinzel decorative', cursive;
+    text-transform: capitalize;
+    padding-bottom: 0px;
+}
+#footer h2 {
+    color: white;
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-style: oblique;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+#footer .social-icon {
+    display: flex;
+    margin-bottom: 30px;
+}
+#footer .social-item {
+    height: 50px;
+    width: 50px;
+    margin: 0 20px;
+}
+#footer .social-item img {
+    filter: grayscale(1);
+    transition: .2s ease filter;
+}
+#footer .social-item:hover img {
+    filter: grayscale(0);
+}
+#footer p {
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: center;
+}
+/*End Footer Section*/
+
+/*****SUB-STATION*****/
+#lyrics .container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 80px;
+    width: fit-content;
+    max-width: 90%;
+}
+#lyrics .lyrics .current-song-lyrics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+#lyrics .lyrics .current-song-lyrics h1 {
+    display: flex;
+    text-align: center;
+    margin-top: 0px;
+    letter-spacing: .9rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: rgb(139, 4, 31);
+    font-style: oblique;
+}
+#lyrics .lyrics .current-song-lyrics h1 span {
+    color: black;
+    background-color: rgba(175, 11, 44, 0.719);
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    padding: 5px 0px;
+    transform: skewX(-20deg);
+}
+#lyrics .lyrics .current-song-lyrics .top {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-bottom: 30px;
+    width: 100%;
+}
+#lyrics .lyrics .current-song-lyrics a {
+    text-decoration: none;
+}
+#lyrics .lyrics .current-song-lyrics h2 {
+    font-weight: 700;
+    font-size: 1.7rem;
+    padding-bottom: 20px;
+}
+#lyrics .lyrics .current-song-lyrics .words {
+    font-size: 1.4rem;
+    line-height: 20px;
+    width: 80%;
+    margin-bottom: 50px;
+    font-weight: 500;
+}
+#lyrics .lyrics .words span {
+    color: rgb(99, 60, 8);
+    font-style: oblique;
+    padding: 20px 0;
+}
+
+/***main Section***/
+#main .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    padding-top: 110px;
+}
+#main .main .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+#main .main img{
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+    z-index: -1;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    box-shadow: 10px 10px 30px -10px;
+}
+#main .main h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: none;
+}
+#main .main-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+#main .main-item {
+    width: 75%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 25px;
+    flex-direction: column;
+    box-shadow: 0px 0px 18px 0 #0000004b;
+    transition: .3s ease;
+}
+#main .main-item:hover {
+    box-shadow: 0px 0px 5px 0 #00000034;
+    background-color: rgba(0, 0, 0, 0.041);
+}
+#main .main-icon {
+    display: none;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#main .main-info h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: black;
+}
+#main .main-info h2 {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    font-weight: 550;
+}
+
+#artiste #footer {
+    background: transparent;
+}
+#artiste .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#artiste .social-item {
+    margin: 20px;
+    padding: 5px;
+}
+/***End Main Section***/
+
+
+/****Ceo-About Segment****/
+#ceo-about {
+    margin: 0 auto;
+    width: 99%;
+}
+#ceo-about .ceo-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+#ceo-about .ceo-about h1 {
+    padding-bottom: 0px;
+}
+#ceo-about h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+    letter-spacing: 5px;
+    font-size: 1.5rem;
+    color: rgb(11, 145, 131);
+    text-decoration: overline;
+    font-style: oblique;
+}
+#ceo-about .ceo-about .col-right p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 30px;
+    padding: 0 10px;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+#ceo-about .ceo-about .col-left-uo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+/***About-page Section***/
+#about-nap .nap {
+    width: 98%;
+}
+#about-nap .nap p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+}
+
+/*************Manager inn about Section*********/
+#manager #about .col-right h1 {
+    font-size: 1.6rem;
+}
+#manager #about .col-right h2 {
+    font-weight: 500;
+    font-style: italic;
+    padding: 0px;
+    text-decoration: overline;
+}
+
+#about .about .col-left-uo .mg-segment {
+    width: 60%;
+    box-shadow: -5px 5px 20px 0px;
+}
+#about-vision #vision {
+display: none;
+}
+#manager .about .col-right {
+    padding-top:50px;
+}
+#manager .about .col-right p {
+    width: 90%;
+    color: rgb(2, 2, 85);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+/*****Artiste page section*****/
+#artiste .section-title {
+    padding-bottom: 10px;
+}
+#artiste #ceo-about .col-right p {
+    margin: 0;
+    width: 100%;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 30px;
+    padding-bottom: 10px;
+}
+#artiste #ceo-about .ceo-about .col-left-uo-charisma img {
+    border: 2px solid crimson;
+}
+
+/*****END OF SUB-STATION*****/
+
+/*********keyFrames************/
+
+@keyframes hamburger_puls {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes text_reveal_box {
+    50% {
+        left: 0;
+        width: 100%;
+    }
+    100% {
+        left: 100%;
+        width: 0;
+    }
+}
+
+@keyframes text_reveal {
+    100% {
+        color: white;
+    }
+}
+
+@keyframes text_reveal3 {
+    20% {
+        color: crimson;
+    }
+    40% {
+        color: #fff;
+    }
+    60% {
+        color: rgb(6, 22, 158);
+    }
+    80% {
+        color: white;
+    }
+    100% {
+        color: crimson;
+    }
+}
+
+/*********End keyFrames************/
+
+/*media Query for Tablet*/
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 8px;
+    }
+    .cta {
+        font-size: 2rem;
+        padding: 10px 30px;
+        text-align: center;
+    }
+    p {
+        font-size: 1.5rem;
+    }
+    .brand h1 {
+        font-size: 4rem;
+    }
+
+    /*Header Section*/
+    #header .container {
+        min-height: 8vh;
+    }
+    #header .hamburger {
+        height: 70px;
+        width: 70px;
+    }
+    #header .hamburger .bar {
+        width: 45px;
+    }
+    #header .hamburger .bar::after {
+        top: 9px;
+    }
+    #header .hamburger .bar::before {
+        bottom: 10px;
+    }
+
+    /*Hero Section*/
+    #hero h1 {
+        font-size: 13rem;
+    }
+    #hero h1:nth-child(3) {
+        font-size: 7.5rem;
+    }
+    #hero h1 span {
+        border-radius: 0px 100px 0px 100px;
+    }
+
+    /*Nap Section*/
+    #nap .container {
+        width: 80%;
+    }
+    #onlow {
+        font-size: 2.2rem;
+    }
+    #nap p {
+        width: 100%;
+        font-size: 2rem;
+        line-height: 30px;
+    }
+
+    /*Vision Section*/
+    #vision {
+        margin-top:50px;
+    }
+    #vision .vision p {
+        font-size: 1.8rem;
+    }
+
+    /*Music Section*/
+    #music .music p {
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
+
+    /*About Section*/
+    #about .about {
+        flex-direction: row;
+        padding-top: 100px;
+    }
+    #about .about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+    #about .about .col-left .about-img::after {
+        left: -42px;
+        top: 30px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid crimson;
+    }
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+        margin-top: 0px;
+    }
+    #about .col-right .section-title {
+        display: flex;
+        padding-top: 0;
+        padding-left: 0;
+    }
+    #about .col-right .cta {
+        margin-left: 0;
+        font-size: 1.6rem;
+    }
+    /*End About Section*/
+
+    #big img {
+        display: none;
+    }
+
+    /*Vision Section*/
+    #vision {
+        margin: 120px 0px;
+    }
+    #vision h1 {
+        font-size: 3.5rem;
+    }
+    #vision .vision p {
+        width: 80%;
+        font-size: 2rem;
+    }
+    /*Vision Section*/
+
+    /*Music Section*/
+    #music h1 {
+        font-size: 4rem;
+        padding-bottom: 40px;
+    }
+    #music .container img {
+        width: 30%;
+    }
+    #music .container h2 {
+        font-size: 3.5rem;
+    }
+    #music .container p {
+        font-size: 1.8rem;
+    }
+    /*End Music Section*/
+
+    /*Home CEO Section*/
+    #about .col-right p {
+        font-size: 1.8rem;
+    }
+
+
+    /*Contact Section*/
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 80vw;
+        margin: 0 auto;
+    }
+    #contact .contact-items {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: content;
+        flex-direction: column;
+        padding: 20px;
+        margin: 0;
+    }
+    #contact .contact-item {
+        min-width: 100%;
+        margin: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    #contact .contact-item .contact-icon {
+        width: 80px;
+        height: 80px;   
+    }
+    #contact .contact-item .contact-icon img {
+        object-fit: contain;
+    }
+    #contact .contact-item .contact-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px; 
+    }
+    #contact .contact .section-title h1 {
+        font-size: 4rem;
+    }
+    #contact .contact-item .contact-info h1 {
+        font-size: 2.4rem;
+        text-align: left;
+        padding-left: 0;
+    }
+    #contact .contact-item .contact-info h2 {
+        font-size: 2rem;
+    }
+        /*End contact Section*/
+
+    /****************Tablet Substation**************/
+    #lyrics .container .current-song-lyrics h1 {
+        font-size: 2.8rem;
+        margin-top: 30px;
+    }
+    #lyrics .container .current-song-lyrics .top {
+        font-size: 1.8rem;
+        line-height: 30px;
+    }
+    #lyrics .lyrics .current-song-lyrics h2 
+    {
+        font-size: 2rem;
+    }
+    #lyrics .lyrics .current-song-lyrics .words {
+        font-size: 1.6rem;
+        line-height: 25px;
+        word-spacing: 2px;
+    }
+
+    /*Stream/Main Section*/
+    #main .main .image {
+        padding-top: 30px;
+        width: 80%;
+    }
+    #main .main h1 {
+        font-size: 2.2rem;
+        padding-top: 30px;
+    }
+    #artiste #footer .social-item {
+        margin: 40px 50px;
+        padding: 10px;
+    }
+    #artiste #footer .social-icon .social-item {
+        padding: 0px;
+    }
+
+    /*CEO About Section*/
+    #ceo-about .ceo-about {
+        margin: 0 auto;
+        min-height: 80vh;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 50px;
+    }
+    #ceo-about .section-title {
+        Font-size: 2.2rem;
+        margin-top: 50px;
+    }
+    #ceo-about .ceo-about .col-right p {
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 30px;
+        padding-bottom: 50px;
+    }
+    #ceo-about .ceo-about .col-left-uo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    /**About-page Section**/
+    #about-nap .nap .section-title {
+        padding-top: 150px;
+        font-size: 3rem;
+    } 
+    #about-nap .nap p {
+        font-size: 1.8rem;
+        text-align: center;
+        word-spacing: 5px;
+        line-height: 30px;
+    }
+
+    /*Manager inn about Section*/
+    #manager #about .col-right {
+        padding: 0;
+    }
+    #manager #about .col-right p {
+        font-style: normal;
+        text-align: left;
+        margin: 0;
+    }
+    #manager #about .col-left-uo .mg-segment {
+        width: 80%;
+    }
+
+    /*Artiste page Section*/
+    #artiste #ceo-about .container {
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+    #artiste #ceo-about .ceo-about .col-right p {
+        font-size: 1.8rem;
+        padding-bottom: 30px;
+    }
+    #artiste #ceo-about .ceo-about .col-left-uo-charisma {
+        width: 100%;
+        margin: 0;
+        padding-bottom: 30px;
+    }
+    #artiste #ceo-about .ceo-about .col-left-uo-charisma img {
+        border: 1px solid turquoise;
+        border-radius: 5px;
+    }
+}
+
+/*End media Query for Tablet*/
+
+
+/* Media Query for Desktop */
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 10px;
+    }
+    
+    /* Header Section */
+    #header .hamburger {
+        display: none;
+    }
+    header .nav-bar {
+        width: 5vh;
+    }
+    #header .nav-list ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+    #header .nav-list ul li {
+        display: inline-block;
+    }
+    #header .nav-list ul a {
+        font-size: 1.4rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+    #header .nav-list ul a::after {
+        display: none;
+    }
+    /*End Header Section*/
+
+/*hero Section*/
+#hero .hero {
+    margin-left: 100px;
+    padding-top: 100px;
+
+}
+#hero h1 {
+    font-size: 16rem;
+    text-align: center;
+}
+#hero h1:nth-child(3) {
+    font-size: 8rem;
+}
+#hero h1 span {
+    border-radius: 0px 70px 0px 70px;
+}
+/*End Hero Section*/
+
+    /*nap Section*/
+    #nap p {
+        width: 70%;
+        font-size: 1.6rem;
+    }
+    /*End nap Section*/
+
+    /*Vision Section*/
+    #vision .vision {
+        min-height: 100vh;
+    }
+    #vision h1 {
+        padding-top: 0;
+    }
+    #vision .vision p {
+        text-align: center;
+        line-height: 50px;
+        font-size: 2rem;
+        font-style: oblique;
+        font-weight: 400;
+        word-spacing: 10px;
+    }
+    /*End Vision Section*/
+
+    /*Music Section*/
+    #music h1 {
+        margin-top: 100px;
+    }
+    /*End Music Section*/
+
+    /*Contact Section*/
+    #contact .contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+    #contact .contact .contact-items {
+        margin: 0;
+        width: 400px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 30px;
+    }
+    #contact .contact .contact-item {
+        width: fit-content;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 20px;
+        flex-direction: column;
+        box-shadow: 0px 0px 18px 0 #0000004b;
+        transition: .3s ease box-shadow;
+    }
+    #contact .contact .contact-item:hover {
+        box-shadow: 0px 0px 5px 0 #00000034;
+    }
+    #contact .contact .contact-icon {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    #contact .contact .contact-info {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0px;
+    }
+    #contact .contact .contact-info h1 {
+        font-size: 1.7rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+    #contact .contact .contact-item .contact-info h2 {
+        margin: 0 auto;
+        padding: 0;
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+        font-weight: 550;
+        text-align: center;
+    }
+    /*End Contact Section*/
+
+    /**********Desktop Substation**********/
+    /**Stream/main Section**/
+    #main .main .image {
+        width: 60%;
+    }
+    #main .main h1 {
+        font-size: 1.9rem;
+        font-weight: 600;
+        padding-top: 30px;
+        font-style: italic;
+    }
+    #main .main-items {
+        flex-direction: row;
+    }
+    #main .main-item {
+        font-family: 'Lobster', cursive;
+        padding-top: 0;
+        transition: .4s ease;
+    }
+    #main .main-item:nth-child(1):hover {
+        background-image: linear-gradient(150deg, red 10%, #0077ff 80%);
+    }
+    #main .main-item:nth-child(2):hover {
+        background-color: rgb(69, 182, 4);
+    }
+    #main .main-item:nth-child(3):hover {
+        background-image: linear-gradient(180deg, #725504 10%, goldenrod 50%, #725504 95%);
+    }
+
+}
+
+
+/* End Media Query for Desktop */
